@@ -6,6 +6,8 @@ use Broadway\Domain\DomainMessage;
 
 class DomainMessageIsNotReplayed implements DomainMessageSpecificationInterface
 {
+    const METADATA_REPLAY_KEY = 'replayed';
+
     /**
      * @param DomainMessage $domainMessage
      * @return bool
@@ -13,6 +15,6 @@ class DomainMessageIsNotReplayed implements DomainMessageSpecificationInterface
     public function isSatisfiedBy(DomainMessage $domainMessage)
     {
         $metadata = $domainMessage->getMetadata()->serialize();
-        return !isset($metadata['replayed']) || !$metadata['replayed'];
+        return !isset($metadata[self::METADATA_REPLAY_KEY]) || !$metadata[self::METADATA_REPLAY_KEY];
     }
 }
