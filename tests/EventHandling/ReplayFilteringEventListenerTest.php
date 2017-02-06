@@ -34,7 +34,7 @@ class ReplayFilteringEventListenerTest extends \PHPUnit_Framework_TestCase
         $domainMessage = DomainMessage::recordNow(
             '44ba2574-aa50-4765-a0e5-38b046a13357',
             0,
-            new Metadata(['replayed' => true]),
+            new Metadata([DomainMessageIsReplayed::METADATA_REPLAY_KEY => true]),
             new \stdClass()
         );
 
@@ -53,7 +53,7 @@ class ReplayFilteringEventListenerTest extends \PHPUnit_Framework_TestCase
         $domainMessage = DomainMessage::recordNow(
             '44ba2574-aa50-4765-a0e5-38b046a13357',
             0,
-            new Metadata(['replayed' => false]),
+            new Metadata([DomainMessageIsReplayed::METADATA_REPLAY_KEY => false]),
             new \stdClass()
         );
 
