@@ -5,7 +5,7 @@ namespace CultuurNet\Broadway\EventHandling;
 use Broadway\Domain\DomainMessage;
 use Broadway\Domain\Metadata;
 use Broadway\EventHandling\EventListenerInterface;
-use CultuurNet\Broadway\Domain\DomainMessageIsNotReplayed;
+use CultuurNet\Broadway\Domain\DomainMessageIsReplayed;
 
 class ReplayFilteringEventListenerTest extends \PHPUnit_Framework_TestCase
 {

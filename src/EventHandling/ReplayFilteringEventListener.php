@@ -3,7 +3,8 @@
 namespace CultuurNet\Broadway\EventHandling;
 
 use Broadway\EventHandling\EventListenerInterface;
-use CultuurNet\Broadway\Domain\DomainMessageIsNotReplayed;
+use CultuurNet\Broadway\Domain\DomainMessageIsNot;
+use CultuurNet\Broadway\Domain\DomainMessageIsReplayed;
 
 class ReplayFilteringEventListener extends FilteringEventListener
 {
@@ -13,7 +14,11 @@ class ReplayFilteringEventListener extends FilteringEventListener
     public function __construct(
         EventListenerInterface $eventListener
     ) {
-        $domainMessageSpecification = new DomainMessageIsNotReplayed();
-        parent::__construct($eventListener, $domainMessageSpecification);
+        parent::__construct(
+            $eventListener,
+            new DomainMessageIsNot(
+                new DomainMessageIsReplayed()
+            )
+        );
     }
 }

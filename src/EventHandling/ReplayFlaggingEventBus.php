@@ -8,7 +8,7 @@ use Broadway\Domain\DomainMessage;
 use Broadway\Domain\Metadata;
 use Broadway\EventHandling\EventBusInterface;
 use Broadway\EventHandling\EventListenerInterface;
-use CultuurNet\Broadway\Domain\DomainMessageIsNotReplayed;
+use CultuurNet\Broadway\Domain\DomainMessageIsReplayed;
 
 class ReplayFlaggingEventBus implements EventBusInterface
 {
@@ -48,7 +48,7 @@ class ReplayFlaggingEventBus implements EventBusInterface
     {
         $replayMetadata = new Metadata(
             [
-                DomainMessageIsNotReplayed::METADATA_REPLAY_KEY => $this->replayMode,
+                DomainMessageIsReplayed::METADATA_REPLAY_KEY => $this->replayMode,
             ]
         );
 
