@@ -10,7 +10,7 @@ use Broadway\EventHandling\EventBusInterface;
 use Broadway\EventHandling\EventListenerInterface;
 use CultuurNet\Broadway\Domain\DomainMessageIsReplayed;
 
-class ReplayFlaggingEventBus implements EventBusInterface
+class ReplayFlaggingEventBus implements ReplayModeEventBusInterface
 {
     /**
      * @var EventBusInterface
