@@ -55,13 +55,7 @@ class ReplayFlaggingEventBus implements ReplayModeEventBusInterface
         $messages = [];
 
         foreach ($domainMessages as $index => $domainMessage) {
-            $messages[$index] = new DomainMessage(
-                $domainMessage->getId(),
-                $domainMessage->getPlayhead(),
-                $domainMessage->getMetadata()->merge($replayMetadata),
-                $domainMessage->getPayload(),
-                $domainMessage->getRecordedOn()
-            );
+            $messages[$index] = $domainMessage->andMetadata($replayMetadata);
         }
 
         $stream = new DomainEventStream($messages);
