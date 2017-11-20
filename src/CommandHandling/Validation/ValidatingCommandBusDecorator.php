@@ -33,7 +33,11 @@ class ValidatingCommandBusDecorator implements CommandBusInterface
     public function dispatch($command)
     {
         $this->commandValidator->validate($command);
-        $this->commandBus->dispatch($command);
+
+        // Normally a CommandBus shouldn't return anything, but we
+        // return whatever the decoratee might return for compatibility
+        // reasons as long as we cannot enforce a void return type.
+        return $this->commandBus->dispatch($command);
     }
 
     /**
