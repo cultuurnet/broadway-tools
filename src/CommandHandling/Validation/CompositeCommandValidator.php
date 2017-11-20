@@ -15,6 +15,15 @@ class CompositeCommandValidator implements CommandValidatorInterface
     }
 
     /**
+     * @param CommandValidatorInterface $commandValidator
+     * @return void
+     */
+    public function register(CommandValidatorInterface $commandValidator)
+    {
+        $this->commandValidators[] = $commandValidator;
+    }
+
+    /**
      * @inheritdoc
      */
     public function validate($command)
