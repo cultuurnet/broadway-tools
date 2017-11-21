@@ -21,8 +21,10 @@ class ValidatingCommandBusDecorator implements CommandBusInterface
      * @param CommandBusInterface $commandBus
      * @param CommandValidatorInterface $commandValidator
      */
-    public function __construct(CommandBusInterface $commandBus, CommandValidatorInterface $commandValidator)
-    {
+    public function __construct(
+        CommandBusInterface $commandBus,
+        CommandValidatorInterface $commandValidator
+    ) {
         $this->commandBus = $commandBus;
         $this->commandValidator = $commandValidator;
     }
