@@ -3,7 +3,6 @@
 namespace CultuurNet\Broadway\CommandHandling\Validation;
 
 use Broadway\CommandHandling\CommandBusInterface;
-use Broadway\CommandHandling\CommandHandler;
 use Broadway\CommandHandling\CommandHandlerInterface;
 
 class ValidatingCommandBusDecoratorTest extends \PHPUnit_Framework_TestCase
@@ -77,5 +76,25 @@ class ValidatingCommandBusDecoratorTest extends \PHPUnit_Framework_TestCase
             ->with($handler);
 
         $this->decorator->subscribe($handler);
+    }
+
+    /**
+     * @test
+     */
+    public function it_does_not_dispatch_on_validate_exception()
+    {
+        $command = (object) ['do' => 'something'];
+
+        $this->validator->expects($this->once())
+            ->method('validate')
+            ->with($command)
+            ->willThrowException(new \Exception());
+
+        $this->decoratee->expects($this->never())
+            ->method('dispatch');
+
+        $this->expectException(\Exception::class);
+
+        $this->decorator->dispatch($command);
     }
 }
