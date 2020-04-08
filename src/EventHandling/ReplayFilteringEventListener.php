@@ -13,7 +13,7 @@ class ReplayFilteringEventListener extends FilteringEventListener implements Log
     /**
      * @var LoggerInterface
      */
-    private $logger;
+    protected $logger;
 
     /**
      * @param EventListenerInterface $eventListener
@@ -34,6 +34,8 @@ class ReplayFilteringEventListener extends FilteringEventListener implements Log
      */
     public function setLogger(LoggerInterface $logger)
     {
-        $this->logger = $logger;
+        if ($this->eventListener instanceof LoggerAwareInterface){
+            $this->eventListener->setLogger($logger);
+        }
     }
 }
