@@ -34,7 +34,7 @@ class ReplayFilteringEventListener extends FilteringEventListener implements Log
      */
     public function setLogger(LoggerInterface $logger)
     {
-        if ($this->eventListener instanceof LoggerAwareInterface){
+        if ($this->eventListener instanceof LoggerAwareInterface) {
             $this->eventListener->setLogger($logger);
         }
     }
