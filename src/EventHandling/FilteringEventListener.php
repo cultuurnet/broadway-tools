@@ -11,7 +11,7 @@ class FilteringEventListener implements EventListenerInterface
     /**
      * @var EventListenerInterface
      */
-    private $eventListener;
+    protected $eventListener;
 
     /**
      * @var DomainMessageSpecificationInterface
