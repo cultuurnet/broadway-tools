@@ -3,7 +3,12 @@
   "description": "",
   "type": "library",
   "license": "Apache-2.0",
-  "authors": [],
+  "authors": [
+    {
+      "name": "publiq vzw",
+      "email": "info@publiq.be"
+    }
+  ],
   "require": {
     "php": "~5.6 || >=7.0",
     "broadway/broadway": "~0.10."
