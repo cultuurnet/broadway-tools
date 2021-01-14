@@ -2,7 +2,9 @@
 
 namespace CultuurNet\Broadway\CommandHandling\Validation;
 
-class CompositeCommandValidatorTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class CompositeCommandValidatorTest extends TestCase
 {
     /**
      * @test

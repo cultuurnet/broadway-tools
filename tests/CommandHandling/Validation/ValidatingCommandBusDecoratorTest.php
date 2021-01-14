@@ -4,8 +4,9 @@ namespace CultuurNet\Broadway\CommandHandling\Validation;
 
 use Broadway\CommandHandling\CommandBusInterface;
 use Broadway\CommandHandling\CommandHandlerInterface;
+use PHPUnit\Framework\TestCase;
 
-class ValidatingCommandBusDecoratorTest extends \PHPUnit_Framework_TestCase
+class ValidatingCommandBusDecoratorTest extends TestCase
 {
     /**
      * @var CommandBusInterface|\PHPUnit_Framework_MockObject_MockObject

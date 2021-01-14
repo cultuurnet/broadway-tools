@@ -3,16 +3,21 @@
   "description": "",
   "type": "library",
   "license": "Apache-2.0",
-  "authors": [],
+  "authors": [
+    {
+      "name": "publiq vzw",
+      "email": "info@publiq.be"
+    }
+  ],
   "require": {
-    "php": "~5.6 || >=7.0",
-    "broadway/broadway": "~0.10."
+    "php": ">=7.1",
+    "broadway/broadway": "~0.10.",
+    "psr/log": "^1.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "~5.7",
+    "phpunit/phpunit": "^7.5",
     "squizlabs/php_codesniffer": "~2.3",
-    "phing/phing": "~2.11",
-    "satooshi/php-coveralls": "~0.7"
+    "phing/phing": "~2.11"
   },
   "autoload": {
     "psr-4": {
@@ -30,5 +35,8 @@
     "branch-alias": {
       "dev-master": "0.x-dev"
     }
+  },
+  "scripts": {
+    "phing": "./vendor/bin/phing test"
   }
 }
