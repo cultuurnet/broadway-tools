@@ -9,8 +9,9 @@ use Broadway\Domain\DomainMessage;
 use Broadway\Domain\Metadata;
 use Broadway\EventHandling\EventListenerInterface;
 use Broadway\EventHandling\SimpleEventBus;
+use PHPUnit\Framework\TestCase;
 
-class ReplayFlaggingEventBusTest extends \PHPUnit_Framework_TestCase
+class ReplayFlaggingEventBusTest extends TestCase
 {
     /**
      * @var SimpleEventBus
